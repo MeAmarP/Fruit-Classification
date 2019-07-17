@@ -1,8 +1,11 @@
 '''
-Filename: e:/Py Proj/ML/EXPLORES/deep_object_detect/fruits-360/v1_fruit_classify_with_pretrainedmodel.py
-Path: e:/Py Proj/ML/EXPLORES/deep_object_detect/fruits-360
 Created Date: Tuesday, May 21st 2019, 7:39:33 pm
-Author: apotdar
+Author: MeAmarP
+
+Description: 
+    Fruit Classification using Pre-trained convnet for feature extraction
+    
+Dataset: <https://www.kaggle.com/moltean/fruits>
 '''
 
 import os
