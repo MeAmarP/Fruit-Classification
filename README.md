@@ -1,10 +1,12 @@
 # Fruit-Classification
 Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
+## Understand Dataset:
 ![Understanding Dataset][EDA_Img]
 
 [EDA_Img]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/EDA_images_v22.png
  
+## Approch
 + I used MobileNetV2 architecutre, pre-trained on ImageNet dataset for feature extraction.
 
 + Next I use these features and ran through a new classifier, which is trained from scratch.
