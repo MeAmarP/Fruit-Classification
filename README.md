@@ -22,13 +22,10 @@ whole network on input data with data augmentation. well this is bit expensive, 
 
 
 ## Results:
-Training and Validation Accuracy:
 ![train_valid_acc][plot_acc]
-
 [plot_acc]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_acc_16JUL_20epochs.png
-Training and Validation Loss:
-![train_valid_loss][plot_loss]
 
+![train_valid_loss][plot_loss]
 [plot_loss]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_Loss_16JUL_20epochs.png
 
 
