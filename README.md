@@ -6,7 +6,7 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 [EDA_Img]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/EDA_images_v22.png
  
-## Approch
+## Approch:
 + I used MobileNetV2 architecutre, pre-trained on ImageNet dataset for feature extraction.
 
 + Next I use these features and ran through a new classifier, which is trained from scratch.
@@ -21,8 +21,18 @@ whole network on input data with data augmentation. well this is bit expensive, 
 + Important Thing, I freeze the convolutional base so as to avoid updating their weights.
 
 
-TODO:
-+ Add Image of EDA and assocoated written functions.
+## Results:
+Training and Validation Accuracy:
+![train_valid_acc][plot_acc]
+
+[plot_acc]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_acc_16JUL_20epochs.png
+Training and Validation Loss:
+![train_valid_loss][plot_loss]
+
+[plot_loss]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_Loss_16JUL_20epochs.png
+
+
+### TODO:
 + Add docStrings for each of the function you have written
 
 
