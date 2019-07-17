@@ -1,4 +1,4 @@
-# Fruit-Classification
+# Fruit-Classification: Work-In-Progress
 Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 ## Understand Dataset:
@@ -22,6 +22,8 @@ whole network on input data with data augmentation. well this is bit expensive, 
 
 
 ## Results:
+Epcohs:20
+
 ![train_valid_acc][plot_acc]
 
 [plot_acc]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_acc_16JUL_20epochs.png
@@ -32,7 +34,10 @@ whole network on input data with data augmentation. well this is bit expensive, 
 
 
 ### TODO:
-+ Add docStrings for each of the function you have written
++ Test with more epochs.
++ add method to Evaluate prediction accuracy and loss on whole test dataset
++ Add docStrings for each of the function you have written.
+
 
 
 ## Refrences:
