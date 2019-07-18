@@ -56,7 +56,7 @@ __Method/Code Snippet:__
 AllClassNames = getAllClassNames(train_dir_path)
 num_of_classes = len(AllClassNames)
 DictOfClasses = {i : AllClassNames[i] for i in range(0, len(AllClassNames))}
-compileClassifyModel(num_of_classes)
+classifyModel=compileClassifyModel(num_of_classes)
 ```
 __Console Output:__
 ```console
