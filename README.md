@@ -8,24 +8,39 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 ### EDA:
 
-Method: readData(base_dir_path)
+Method: 
+'''python
+readData(base_dir_path)
+'''
 Output:
+
 Total Number of Classes in train DataSet:  95
+
 Total Number of Classes in test DataSet:  95
+
 Total Number of train samples:  48905
+
 Total Number of test samples: 16421
 
-Method: understandData(base_dir_path,'train')    
+Method: 
+'''python
+understandData(base_dir_path,'train')
+'''
 Output:
+
 CLASS NAME          NUMBER OF IMAGES
 
 Apple Braeburn      492
+
 Apple Golden 1      492
+
 Apple Golden 2      492
+
 Apple Golden 3      481
+
 Apple Granny Smith  492
 
- 
+
 ## Approch:
 + I used MobileNetV2 architecutre, pre-trained on ImageNet dataset for feature extraction.
 
