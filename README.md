@@ -8,7 +8,7 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 ### Step 1 - EDA:
 
-__Method:__
+__Method/Code Snippet:__
 ```python
 base_dir_path = os.getcwd()
 train_dir_path = os.path.join(base_dir_path,'train')
@@ -23,7 +23,7 @@ Total Number of Classes in test DataSet:  95
 Total Number of train samples:  48905
 Total Number of test samples: 16421
 ```
-__Method:__
+__Method/Code Snippet:__
 ```python
 understandData(base_dir_path,'train')
 ```
@@ -51,7 +51,7 @@ whole network on input data with data augmentation.
 + Important Thing, I freeze the convolutional base so as to avoid updating their weights.
 
 ### Step 2 - Compiling Model:
-__Method:__
+__Method/Code Snippet:__
 ```python
 AllClassNames = getAllClassNames(train_dir_path)
 num_of_classes = len(AllClassNames)
@@ -79,7 +79,11 @@ _________________________________________________________________
 ```
 
 ### Step 3 - Training compiled Model:
-
+__Method/Code Snippet:__
+```python
+trainingHistory,trainedModel_filename = trainClassifyModel(classifyModel)
+plotTrainResults(trainingHistory)
+```
 ### Training Results:
 **Epcohs:20**
 ![train_valid_acc][plot_acc]
