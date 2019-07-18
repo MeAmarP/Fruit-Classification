@@ -10,8 +10,13 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 __Method/Code Snippet:__
 ```python
+#get path to root dir
 base_dir_path = os.getcwd()
+
+#build path to train dir
 train_dir_path = os.path.join(base_dir_path,'train')
+
+#build path to test dir
 test_dir_path = os.path.join(base_dir_path,'test')
 
 readData(base_dir_path)
@@ -53,9 +58,14 @@ whole network on input data with data augmentation.
 ### Step 2 - Compiling Model:
 __Method/Code Snippet:__
 ```python
+#Get list of All classes
 AllClassNames = getAllClassNames(train_dir_path)
 num_of_classes = len(AllClassNames)
+
+#build dict of clas_id and classname
 DictOfClasses = {i : AllClassNames[i] for i in range(0, len(AllClassNames))}
+
+#Compile classification model
 classifyModel=compileClassifyModel(num_of_classes)
 ```
 __Console Output:__
@@ -81,11 +91,15 @@ _________________________________________________________________
 ### Step 3 - Training compiled Model:
 __Method/Code Snippet:__
 ```python
+#Start training model on train dataset
 trainingHistory,trainedModel_filename = trainClassifyModel(classifyModel)
+
+#Plot the training results
 plotTrainResults(trainingHistory)
 ```
 ### Training Results:
 **Epcohs:20**
+
 ![train_valid_acc][plot_acc]
 
 [plot_acc]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_acc_16JUL_20epochs.png
@@ -93,6 +107,23 @@ plotTrainResults(trainingHistory)
 ![train_valid_loss][plot_loss]
 
 [plot_loss]: https://github.com/MeAmarP/Fruit-Classification/blob/master/results/train_valid_Loss_16JUL_20epochs.png
+
+
+### Step 4 - Prediction:
+__Method/Code Snippet:__
+```python
+#path to test image
+ImagePath = 'test/Banana Red/99_100.jpg'
+
+#path to trained-saved model
+path_trained_model = os.path.abspath(trainedModel_filename)
+
+#load trained model
+trainedModel = getTrainedModel(path_trained_model)
+
+#perform predictions
+AllProbs = predictFruitClass(ImagePath,trainedModel,DictOfClasses)
+```
 
 
 ### TODO:
