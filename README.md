@@ -134,9 +134,9 @@ Banana
 
 
 ### TODO:
-- [] Test with more epochs.
-- [] Add method to print Top-K predicted categories/classes.
-- [] add method to Evaluate prediction accuracy and loss on whole test dataset.
+- [ ] Test with more epochs.
+- [ ] Add method to print Top-K predicted categories/classes.
+- [ ] add method to Evaluate prediction accuracy and loss on whole test dataset.
 
 
 ## Refrences:
