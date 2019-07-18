@@ -8,36 +8,28 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 ### EDA:
 
-Method: 
+__Method:__
 ```python
 readData(base_dir_path)
 ```
-Output:
-
+__Output:__
+```console
 Total Number of Classes in train DataSet:  95
-
 Total Number of Classes in test DataSet:  95
-
 Total Number of train samples:  48905
-
 Total Number of test samples: 16421
-
-Method: 
+```
+__Method:__
 ```python
 understandData(base_dir_path,'train')
 ```
-Output:
+__Output:__
 
 CLASS NAME          NUMBER OF IMAGES
-
 Apple Braeburn      492
-
 Apple Golden 1      492
-
 Apple Golden 2      492
-
 Apple Golden 3      481
-
 Apple Granny Smith  492
 
 
