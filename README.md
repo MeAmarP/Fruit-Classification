@@ -10,6 +10,10 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 
 __Method:__
 ```python
+base_dir_path = os.getcwd()
+train_dir_path = os.path.join(base_dir_path,'train')
+test_dir_path = os.path.join(base_dir_path,'test')
+
 readData(base_dir_path)
 ```
 __Console Output:__
@@ -49,6 +53,9 @@ whole network on input data with data augmentation.
 ### Step 2 - Compiling Model:
 __Method:__
 ```python
+AllClassNames = getAllClassNames(train_dir_path)
+num_of_classes = len(AllClassNames)
+DictOfClasses = {i : AllClassNames[i] for i in range(0, len(AllClassNames))}
 compileClassifyModel(num_of_classes)
 ```
 __Console Output:__
