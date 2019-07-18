@@ -24,14 +24,14 @@ __Method:__
 understandData(base_dir_path,'train')
 ```
 __Output:__
-
+```console
 CLASS NAME          NUMBER OF IMAGES
 Apple Braeburn      492
 Apple Golden 1      492
 Apple Golden 2      492
 Apple Golden 3      481
 Apple Granny Smith  492
-
+```
 
 ## Approch:
 + I used MobileNetV2 architecutre, pre-trained on ImageNet dataset for feature extraction.
