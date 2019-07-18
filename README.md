@@ -9,9 +9,9 @@ Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
 ### EDA:
 
 Method: 
-'''python
+```python
 readData(base_dir_path)
-'''
+```
 Output:
 
 Total Number of Classes in train DataSet:  95
@@ -23,9 +23,9 @@ Total Number of train samples:  48905
 Total Number of test samples: 16421
 
 Method: 
-'''python
+```python
 understandData(base_dir_path,'train')
-'''
+```
 Output:
 
 CLASS NAME          NUMBER OF IMAGES
