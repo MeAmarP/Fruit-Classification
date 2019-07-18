@@ -29,19 +29,35 @@ MNet_InputSize = (224,224)
 def getAllClassNames(dir_path):
     return os.listdir(dir_path)
 
-def understandData(BASE_DIR_PATH):    
-    train_dir_path = os.path.join(BASE_DIR_PATH,'train')
+def understandData(BASE_DIR_PATH,train_or_test):
+    """
+    Function prints number of images per class in train/test directory
+    <CLASS-NAME    NUMBER-OF-IMAGES>
+    
+    Args:
+        BASE_DIR_PATH(str): path of the base directory
+        train_or_test(str): directory to select train/test
+    """    
+    train_dir_path = os.path.join(BASE_DIR_PATH,train_or_test)
     #test_dir_path = os.path.join(BASE_DIR_PATH,'test')
     print("Number of Classes = ",len(os.listdir(train_dir_path)))
     AllClassNames = os.listdir(train_dir_path)
     #print("Class Names = ",AllClassNames)
-#    print('CLASS NAME'+'\t'+'NUMBER OF IMAGES')    
-#    for class_name in AllClassNames:
-#        print(class_name+'\t',len(os.listdir(os.path.join(train_dir_path,class_name))))
-    displaySampleImages(train_dir_path,AllClassNames)
+    print('CLASS NAME'+'\t'+'NUMBER OF IMAGES')    
+    for class_name in AllClassNames:
+        print(class_name+'\t',len(os.listdir(os.path.join(train_dir_path,class_name))))
+    #displaySampleImages(train_dir_path,AllClassNames)
     return
 
-def displaySampleImages(PATH_TO_TRAIN_DIR,ALL_CLASS_NAMES):
+def displaySampleImages(PATH_TO_DIR,ALL_CLASS_NAMES):
+    """
+    Display grid of sample images for every class in dataset.
+    
+    Args:
+        PATH_TO_DIR(str): path to train or test dir.
+        ALL_CLASS_NAMES(str): list of all class names.
+        
+    """
     import matplotlib.pyplot as plt
     import matplotlib as mpl
     mpl.rcParams['axes.titlesize'] = 8
@@ -52,7 +68,7 @@ def displaySampleImages(PATH_TO_TRAIN_DIR,ALL_CLASS_NAMES):
     fig.subplots_adjust(hspace=0.7, wspace=0.1)
     fig.suptitle('Understanding Fruit-360 Dataset', fontsize=16)
     for n,class_name in enumerate(ALL_CLASS_NAMES):
-        ImagePath = glob.glob(os.path.join(PATH_TO_TRAIN_DIR,class_name)+'/*.jpg')[0]
+        ImagePath = glob.glob(os.path.join(PATH_TO_DIR,class_name)+'/*.jpg')[0]
         #print(ImagePath)
         Img = cv2.imread(ImagePath)
         ax = fig.add_subplot(10,10,(n+1))
@@ -63,6 +79,15 @@ def displaySampleImages(PATH_TO_TRAIN_DIR,ALL_CLASS_NAMES):
     return
 
 def readData(BASE_DIR_PATH):
+    """
+    Console output of,
+        total number of classes in train/test dir 
+        total number of images in train/test dir
+    in given dataset.
+    
+    Args:
+        BASE_DIR_PATH(str): path to root dir
+    """
     nb_of_train_files = 0
     nb_of_test_files = 0
     train_dir_path = os.path.join(BASE_DIR_PATH,'train')
@@ -79,11 +104,33 @@ def readData(BASE_DIR_PATH):
     return
 
 def id_class_name(class_id, classes):
+    """
+    Returns name of the class as per the given id
+    
+    Args:
+        class_id(int): Number of the class.
+        classes(dict): dictinary of all the classes in given dataset.
+        
+    returns:
+        Name of the Class.
+    """
     for key, value in classes.items():
         if class_id == key:
             return value
         
 def predictFruitClass(ImagePath,trainedModel,DictOfClasses):
+    """
+    Perform class prediction on input image and print predicted class.
+        
+    Args:
+        ImagePath(str): Absolute Path to test image
+        trainedModel(object): trained model from method getTrainedModel()
+        DictOfClasses(dict): python dict of all image classes.
+        
+    Returns:
+        Probability of predictions for each class.
+        
+    """
     x = image.load_img(ImagePath, target_size=MNet_InputSize)
     x = image.img_to_array(x)
     #for Display Only
@@ -99,11 +146,27 @@ def predictFruitClass(ImagePath,trainedModel,DictOfClasses):
     return prediction_probs
     
 def getTrainedModel(PATH_TO_TRAINED_MODEL_FILE):
+    """
+    Loads trained-saved model from file(.h5) and returns as a object.
+    
+    Args:
+        PATH_TO_TRAINED_MODEL_FILE(str): path to saved model file.
+    
+    returns:
+        trainedModel(model object): returns a model saved as a <.h5> 
+    """
     from tensorflow.keras.models import load_model
     traiendModel = load_model(PATH_TO_TRAINED_MODEL_FILE)
     return traiendModel
 
 def plotResults(historyObject):
+    """
+    Summary:
+        Plots train-validation loss and accuracy graphs for given history object
+    
+    Args:
+        historyObject(object): Object returned by fit/fit_generator during train.        
+    """
     import matplotlib.pyplot as plt
     acc = history.history['acc']
     val_acc = history.history['val_acc']
@@ -176,7 +239,14 @@ model.save('fruit_360_trained_16JUL.h5')
 
 
 if __name__ == "__main__":
-    ImagePath = 'test/Banana Red/99_100.jpg'
-    path_trained_model = "E:/Py_Proj/ML/EXPLORES/deep_object_detect/fruits-360/trained_model/fruit_360_trained_16JUL.h5"
-    trainedModel = getTrainedModel(path_trained_model)
-    AllProbs = predictFruitClass(ImagePath,trainedModel,DictOfClasses)
+    base_dir_path = os.getcwd()
+    train_dir_path = os.path.join(base_dir_path,'train')
+    test_dir_path = os.path.join(base_dir_path,'test')
+    MNet_InputSize = (224,224)
+    
+    understandData(base_dir_path)
+    
+#    ImagePath = 'test/Banana Red/99_100.jpg'
+#    path_trained_model = "E:/Py_Proj/ML/EXPLORES/deep_object_detect/fruits-360/trained_model/fruit_360_trained_16JUL.h5"
+#    trainedModel = getTrainedModel(path_trained_model)
+#    AllProbs = predictFruitClass(ImagePath,trainedModel,DictOfClasses)
