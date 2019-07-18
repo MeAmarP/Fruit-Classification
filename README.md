@@ -40,6 +40,9 @@ Apple Golden 1      492
 Apple Golden 2      492
 Apple Golden 3      481
 Apple Granny Smith  492
+.
+.
+.
 ```
 
 ## Build Model and Train Dataset:
@@ -124,11 +127,16 @@ trainedModel = getTrainedModel(path_trained_model)
 #perform predictions
 AllProbs = predictFruitClass(ImagePath,trainedModel,DictOfClasses)
 ```
+__Console Output:__
+```console
+Banana
+```
 
 
 ### TODO:
-+ Test with more epochs.
-+ add method to Evaluate prediction accuracy and loss on whole test dataset
+- [] Test with more epochs.
+- [] Add method to print Top-K predicted categories/classes.
+- [] add method to Evaluate prediction accuracy and loss on whole test dataset.
 
 
 ## Refrences:
