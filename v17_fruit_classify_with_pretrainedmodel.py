@@ -109,11 +109,15 @@ def displaySampleImages(PATH_TO_DIR,ALL_CLASS_NAMES):
     plt.show()
     return
 
-def compileClassifyModel():
+def compileClassifyModel(num_of_classes):
+    """
+        Returns compiled classification model 
+    """
     conv_base = MobileNetV2(weights='imagenet',
                         include_top=False,
                         pooling='avg')
     conv_base.trainable = False #Freeze Model 
+    
     model = models.Sequential()
     model.add(conv_base)
     model.add(layers.Flatten())
@@ -132,6 +136,17 @@ def trainClassifyModel(ClassifyModel,
                        batch_size=16,
                        save_model_filename='fruit_classify_model',
                        MNet_InputSize=(224,224)):
+    
+    """
+    Performs training of model
+    
+    Args:
+        ClassifyModel: Compiled model
+        batch_size(int): No. of sample to process
+        save_model_filename(str): filename without extension
+        MNet_InputSize(tuple): Input shape of MobileNetV2 model, use default.
+        
+    """
     
     datagen = ImageDataGenerator(rescale=1./255,
                              shear_range=0.4,
@@ -188,6 +203,16 @@ def plotTrainResults(history):
     return
 
 def SaveModelFile(ClassifyModel,save_model_filename):
+    """
+    Saves trained classification model
+    
+    Args:
+        ClassifyModel : trained classification Model
+        save_model_filename(str): filename, to save trained model,without extension.
+        
+    Returns:
+        save_model_filename(str): filename with extension.
+    """
     today = date.today()
     date_str = today.strftime("%d%m%y")
     save_model_filename = '_'.join([save_model_filename,date_str])
