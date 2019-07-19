@@ -134,9 +134,9 @@ Banana
 
 ## Issues and Challenges:
 + Need more diverse data for each fruit class.
-+ It is really hard for model to infer the type of fruit, this may be due to closer properties(shape,color etc) of the object
-I mean, it is easier for model to recognise banana compared to other fruit class.
-+ For Example, model predicts Grape White as Guava. __Refer Above grid image__. This observed with several
++ It is really hard for model to infer the type of fruit, this may be due to closer properties(shape,color etc) of the object.
+I mean, it is easier for model to recognise Banana compared to other fruit class.
++ For Example, model predicts Grape White as Guava. __Refer Above grid image__. This has been observed with several
 other fruit classes. 
 
 ### TODO:
