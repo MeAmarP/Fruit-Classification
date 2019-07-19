@@ -149,4 +149,5 @@ other fruit classes.
 ## Refrences:
 + MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
  <https://arxiv.org/abs/1704.04861>
++ <https://keras.io/applications/#resnet>
 + Deep Learning with Python, François Chollet.
