@@ -1,5 +1,5 @@
 # Fruit-Classification: Work-In-Progress
-Fruit Classification using TensorFlow-Keras on Fruits 360 dataset
+Fruit Classification/Identififcation using TensorFlow-Keras on Fruits 360 dataset
 
 ## Understand Dataset:
 ![Understanding Dataset][EDA_Img]
@@ -141,8 +141,9 @@ other fruit classes.
 
 ### TODO:
 - [ ] Test with more epochs.
+- [ ] Test with ResNet, InveptionV3,Xception models
 - [ ] Add method to print Top-K predicted categories/classes.
-- [ ] add method to Evaluate prediction accuracy and loss on whole test dataset.
+- [ ] Add method to Evaluate prediction accuracy and loss on whole test dataset.
 
 
 ## Refrences:
