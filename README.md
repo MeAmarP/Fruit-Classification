@@ -51,7 +51,7 @@ Apple Granny Smith  492
 + I used MobileNetV2 architecutre, pre-trained on ImageNet dataset for feature extraction.
 + Next I use these features and ran through a new classifier, which is trained from scratch.
 + As stated in my Favourite Book: __Deep Learning with Python__. 
-We took convolitional base(conv_base) of Mobilenet, ran new data through it and trained a new classifier on top of
+We took convolutional base(conv_base) of MobileNetV2, ran new data through it and trained a new classifier on top of
 the output.
 + So basically, I extended the conv_base by adding Dense layer followed by DropOut layer, and running 
 whole network on input data with data augmentation. 
@@ -132,6 +132,12 @@ __Console Output:__
 Banana
 ```
 
+## Issues and Challenges:
++ Need more diverse data for each fruit class.
++ It is really hard for model to infer the type of fruit, this may be due to closer properties(shape,color etc) of the object
+I mean, it is easier for model to recognise banana compared to other fruit class.
++ For Example, model predicts Grape White as Guava. __Refer Above grid image__. This observed with several
+other fruit classes. 
 
 ### TODO:
 - [ ] Test with more epochs.
