@@ -249,6 +249,20 @@ def id_class_name(class_id, classes):
     for key, value in classes.items():
         if class_id == key:
             return value
+
+
+def get_preds_and_labels(model, generator):
+    """
+    Get predictions and labels from the generator
+    """
+    preds = []
+    labels = []
+    for _ in range(int(np.ceil(generator.samples / 16))): #16 is Batch Sizes
+        x, y = next(generator)
+        preds.append(model.predict(x))
+        labels.append(y)
+    # Flatten list of numpy arrays
+    return np.concatenate(preds).ravel(), np.concatenate(labels).ravel()
         
 def predictFruitClass(ImagePath,trainedModel,DictOfClasses):
     """
@@ -293,7 +307,7 @@ if __name__ == "__main__":
     readData(base_dir_path)
     understandData(base_dir_path,'train')
     displaySampleImages(train_dir_path,AllClassNames)
-    classifyModel = compileClassifyModel()
+    classifyModel = compileClassifyModel(num_of_classes)
     trainingHistory,trainedModel_filename = trainClassifyModel(classifyModel)
     plotTrainResults(trainingHistory)
     
